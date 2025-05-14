@@ -1,12 +1,11 @@
 import { Component, inject, output} from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AccountsService } from '../_services/accounts.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-register',
-  imports: [BrowserModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

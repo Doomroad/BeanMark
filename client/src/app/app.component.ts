@@ -6,8 +6,7 @@ import { AccountsService } from './_services/accounts.service';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NavComponent ],
+  imports: [RouterOutlet, NavComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
   
