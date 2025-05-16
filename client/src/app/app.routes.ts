@@ -1,6 +1,9 @@
 import { provideRouter, Routes } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
+import { NotFoundComponent } from './errors/not-found/not-found.component';
+import { ServerErrorComponent } from './errors/server-error/server-error.component';
 
 export const routes: Routes = [
   { path: '', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent) },
@@ -16,7 +19,9 @@ export const routes: Routes = [
       { path: 'messages', loadComponent: () => import('./messages/messages.component').then(m => m.MessagesComponent) },
     ]
   },
-
+  { path: 'errors', component: TestErrorsComponent },
+  { path: 'not-found', component: NotFoundComponent },
+  { path: 'server-error', component: ServerErrorComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
