@@ -14,7 +14,7 @@ export const routes: Routes = [
     canActivate: [() => import('./_guards/auth.guard').then(m => m.authGuard)],
     children: [
       { path: 'members', loadComponent: () => import('./members/member-list/member-list.component').then(m => m.MemberListComponent) },
-      { path: 'members/:id', loadComponent: () => import('./members/member-detail/member-detail.component').then(m => m.MemberDetailComponent) },
+      { path: 'members/:username', loadComponent: () => import('./members/member-detail/member-detail.component').then(m => m.MemberDetailComponent) },
       { path: 'lists', loadComponent: () => import('./lists/lists.component').then(m => m.ListsComponent) },
       { path: 'messages', loadComponent: () => import('./messages/messages.component').then(m => m.MessagesComponent) },
     ]
