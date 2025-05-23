@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 import { TestErrorsComponent } from './errors/test-errors/test-errors.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { preventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
 export const routes: Routes = [
   { path: '', loadComponent: () => import('./home/home.component').then(m => m.HomeComponent) },
@@ -15,6 +16,8 @@ export const routes: Routes = [
     children: [
       { path: 'members', loadComponent: () => import('./members/member-list/member-list.component').then(m => m.MemberListComponent) },
       { path: 'members/:username', loadComponent: () => import('./members/member-detail/member-detail.component').then(m => m.MemberDetailComponent) },
+      { path: 'member/edit', loadComponent: () => import('./members/member-edit/member-edit.component').then(m => m.MemberEditComponent),
+        canDeactivate: [preventUnsavedChangesGuard]},
       { path: 'lists', loadComponent: () => import('./lists/lists.component').then(m => m.ListsComponent) },
       { path: 'messages', loadComponent: () => import('./messages/messages.component').then(m => m.MessagesComponent) },
     ]
