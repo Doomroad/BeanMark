@@ -5,7 +5,7 @@ using API.Errors;
 
 namespace API.Middleware;
 
-public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger, Microsoft.AspNetCore.Hosting.IHostingEnvironment env)
+public class ExceptionMiddleware(RequestDelegate next, ILogger<ExceptionMiddleware> logger, Microsoft.AspNetCore.Hosting.IWebHostEnvironment env)
 {
     public async Task InvokeAsync(HttpContext context)   
     {

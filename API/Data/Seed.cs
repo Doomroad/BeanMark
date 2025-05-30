@@ -52,18 +52,19 @@ public class Seed
             var user = new AppUser
             {
                 UserName = userDto.UserName.ToLower(),
+                Email = userDto.Email.ToLower(),
                 PasswordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes("Pa$$w0rd")),
                 PasswordSalt = hmac.Key,
-                Gender = userDto.Gender,
+                /* Gender = userDto.Gender,
                 KnownAs = userDto.KnownAs,
-                DateOfBirth = userDto.DateOfBirth,
+                DateOfBirth = userDto.DateOfBirth, */
                 Created = userDto.Created,
                 LastActive = userDto.LastActive,
-                Introduction = userDto.Introduction,
+                /* Introduction = userDto.Introduction,
                 LookingFor = userDto.LookingFor,
                 Interests = userDto.Interests,
                 City = userDto.City,
-                Country = userDto.Country,
+                Country = userDto.Country, */
                 Photos = userDto.Photos.Select(p => new Photo
                 {
                     Url = p.Url,

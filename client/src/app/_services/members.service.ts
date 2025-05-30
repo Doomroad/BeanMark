@@ -52,7 +52,7 @@ export class MembersService {
   }
 
   deletePhoto(photo: Photo) {
-    return this.http.delete(this.baseUrl + 'users/delete-photo' + photo.id).pipe(
+    return this.http.delete(this.baseUrl + 'users/delete-photo/' + photo.id).pipe(
       tap(() =>{
         this.members.update(members => members.map(m => {
           if (m.photos.includes(photo)) {

@@ -1,9 +1,9 @@
-<div class="container mt-5"> 
+<!-- <div class="container mt-5"> 
     <div>
 
         @if (!registerMode) {
         <h1>Find your beans</h1>
-        <p class="lead">Come on to find new coffe beans that suite your tastes. All you need to do is sign up.</p>
+        <p class="lead">Come on to find new coffee beans that suite your tastes. All you need to do is sign up.</p>
         <div class="text-center">
             <button (click)="registerToggle()" class="btn btn-primary btn-lg me2">Register</button>
             <button class="btn btn-info btn-lg me2">Learn more</button>
@@ -21,4 +21,42 @@
         }
 
     </div>
+</div> -->
+
+<div class="container mt-5">
+  <div *ngIf="!isLoggedIn(); else loggedInContent">
+
+    <!-- Registration form toggle -->
+    <ng-container *ngIf="!registerMode(); else showRegisterForm">
+      <h1>Find your beans</h1>
+      <p class="lead">Come on to find new coffee beans that suit your tastes. All you need to do is sign up.</p>
+      <div class="text-center">
+        <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Register</button>
+        <button class="btn btn-info btn-lg me-2">Learn more</button>
+      </div>
+    </ng-container>
+
+    <!-- Register form -->
+    <ng-template #showRegisterForm>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+
+  </div>
+
+  <!-- Content shown after login -->
+  <ng-template #loggedInContent>
+    <h2>Welcome to Beanmark!</h2>
+    <ul class="page-navigation">
+        <li class="recommendations"><h5><a href="">Recommendations</a></h5></li>
+        <li class="what-is-new"><h5><a href="">What's new</a></h5></li>
+        <li class="about-us"><h5><a href="">About Beanmark</a></h5></li>
+    </ul>
+    <!-- You can add logged-in content here -->
+  </ng-template>
 </div>
